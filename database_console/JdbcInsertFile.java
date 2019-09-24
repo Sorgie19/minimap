@@ -15,16 +15,13 @@ import java.util.ArrayList;
 public class JdbcInsertFile {
  
     public static void main(String[] args) {
-        String url = "jdbc:mysql:mac-addresses-instance-1-us-east-2b.c44pfwy0p40v.us-east-2.rds.amazonaws.com:3306/mac_addresses";
+        String url = "jdbc:mysql:mac-addresses.c44pfwy0p40v.us-east-2.rds.amazonaws.com:3306/mac";
         String user = "admin";
-        String password = "rs111111";
- 
-        String filePath = args[0];
- 
+        String password = "rs111111"; 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
  
-            String sql = "INSERT INTO data (unique_mac) values (?)";
+            String sql = "INSERT INTO data (mac_address) values (?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             
             String fileLocation = args[0];
@@ -34,11 +31,12 @@ public class JdbcInsertFile {
             while ((line = br.readLine()) != null)
             {
             	statement.setString(1, line);
+            	int row = statement.executeUpdate();
+                if (row > 0) {
+                    System.out.println("A mac address was inserted.");
             }  
  
-            int row = statement.executeUpdate();
-            if (row > 0) {
-                System.out.println("A contact was inserted with photo image.");
+            
             }
             conn.close();
         } catch (SQLException ex) {
