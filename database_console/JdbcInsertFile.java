@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class JdbcInsertFile {
  
     public static void main(String[] args) {
-        String url = "jdbc:mysql:mac-addresses.c44pfwy0p40v.us-east-2.rds.amazonaws.com:3306/mac";
+        String url = "jdbc://mysql:mac-addresses.c44pfwy0p40v.us-east-2.rds.amazonaws.com:3306/mac";
         String user = "admin";
         String password = "rs111111"; 
         try {
