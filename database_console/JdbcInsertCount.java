@@ -30,16 +30,12 @@ public class JdbcInsertCount
 			String line;
 			int count = 0;
 			while ((line = br.readLine()) != null)
-			{
 				count++;
-				
-
-			}
 			statement.setInt(1, count);
 			int row = statement.executeUpdate();
 			if (row > 0)
 			{
-				System.out.println("A mac address was inserted.");
+				System.out.println("count: " + count + " A mac address was inserted.");
 			}
 			conn.close();
 		}
