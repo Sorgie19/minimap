@@ -12,14 +12,14 @@ public class JdbcInsertCount
 
 	public static void main(String[] args)
 	{
-		String url = "jdbc:mysql://mac-addresses.c44pfwy0p40v.us-east-2.rds.amazonaws.com:3306/numbers";
+		String url = "jdbc:mysql://mac-addresses.c44pfwy0p40v.us-east-2.rds.amazonaws.com:3306/number";
 		String user = "admin";
 		String password = "rs111111";
 		try
 		{
 			Connection conn = DriverManager.getConnection(url, user, password);
 
-			String sql = "INSERT INTO devices (count) values (?)";
+			String sql = "INSERT INTO devices (device_count) values (?)";
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			String fileLocation = args[0];
@@ -31,8 +31,8 @@ public class JdbcInsertCount
 			{
 				count++;
 
-
 			}
+			System.out.println("Count: " + count );
 			statement.setInt(1, count);
 			int row = statement.executeUpdate();
 			if (row > 0)

@@ -32,7 +32,7 @@ public class MacAddressParser
                         System.out.println(s);
                         writer.write(s + "\n");
                 }
-		System.out.println("Count: " + uniqueMac.size());
+		System.out.println(uniqueMac.size());
                 writer.close();
                 br.close();
                 System.exit(0);
