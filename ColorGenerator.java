@@ -29,8 +29,8 @@ public class ColorGenerator
 		ArrayList<Integer> devicesList = new ArrayList<Integer>();
 		int lastCapture = 0;
 		int count = 0;
-		int min = 0;
-		int max = 0;
+		//int min = 0;
+		//int max = 0;
 		try
 		{
 			Class.forName(JDBC_DRIVER);
@@ -52,8 +52,8 @@ public class ColorGenerator
 				Timestamp time_stamp = rs.getTimestamp("time_stamp");
 				int device_count = rs.getInt("device_count");
 				devicesList.add(device_count);
-				min = Collections.min(devicesList);
-				max = Collections.max(devicesList);
+				//min = Collections.min(devicesList);
+				//max = Collections.max(devicesList);
 
 				// double d1 = min;
 				// double d2 = max;
@@ -72,8 +72,8 @@ public class ColorGenerator
 				count++;
 			}
 
-			// int min = Collections.min(devicesList);
-			// int max = Collections.max(devicesList);
+			int min = Collections.min(devicesList);
+			int max = Collections.max(devicesList);
 			lastCapture = devicesList.get(count - 1);
 			System.out.println("min: " + min);
 			System.out.println("max: " + max);
