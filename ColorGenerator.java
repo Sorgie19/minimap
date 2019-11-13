@@ -120,7 +120,7 @@ public class ColorGenerator
 	{
 		try
 		{
-			URL url = new URL("http://10.5.54.42/db.json");
+			URL url = new URL("http://minimap.ddns.uark.edu/db.json");
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("POST");
 			con.setRequestProperty("Content-Type", "application/json; utf-8");
